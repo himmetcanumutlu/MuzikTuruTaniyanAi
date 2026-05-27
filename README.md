@@ -2,15 +2,15 @@
 
 ## Türkçe
 
-MuzikTuruTanima, kullanıcı tarafından verilen bir müzik dosyasını analiz ederek parçanın çoğunlukla hangi müzik türüne ait olduğunu tahmin eden bir müzik türü tanıma projesidir. Sistem, müziği 30 saniyelik bölümlere ayırır ve her bölümü daha önce öğrendiği tür özellikleriyle karşılaştırır. Ardından elde edilen sonuçları değerlendirerek parçanın genel türünü belirler.
+MuzikTuruTanima, verilen bir müzik dosyasının türünü tahmin etmeye yönelik geliştirilmiş bir projedir. Sistem, müziği 30 saniyelik bölümlere ayırır ve her bölümü daha önce öğrendiği müzik türleriyle karşılaştırır. Bu karşılaştırmalar sonucunda müziğin çoğunluk olarak hangi türe ait olduğunu saptar.
 
-Proje yalnızca tahmin yapmakla kalmaz; kullanıcı sistemin verdiği sonucun hatalı olduğunu düşünürse doğru tür bilgisini öğretebilir. Bu sayede sistem zamanla yeni örneklerden öğrenebilir ve daha doğru tahminler yapabilecek şekilde geliştirilebilir.
+Proje, tahmin sonucunun hatalı olduğunu düşündüğünüz durumlarda doğru türü öğretme imkanı da sunar. Böylece kullanıcı, sistemin verdiği sonuca müdahale ederek doğru bilgiyi ekleyebilir.
 
 ## English
 
-MuzikTuruTanima is a music genre recognition project that analyzes a music file provided by the user and predicts which genre the track mostly belongs to. The system divides the music into 30-second segments and compares each segment with the genre features it has previously learned. It then evaluates the results and determines the overall genre of the track.
+MuzikTuruTanima is a project developed to predict the genre of a given music file. The system divides the music into 30-second segments and compares each segment with the music genres it has previously learned. Based on these comparisons, it determines which genre the music mostly belongs to.
 
-The project does not only make predictions; if the user thinks the prediction is incorrect, they can teach the system the correct genre. In this way, the system can learn from new examples over time and improve its prediction accuracy.
+The project also provides the option to teach the correct genre if you think the prediction is wrong. This allows the user to correct the system's result by adding the accurate genre information.
 
 ---
 
@@ -18,35 +18,31 @@ The project does not only make predictions; if the user thinks the prediction is
 
 ## Türkçe
 
-Bu proje, müzik türlerini otomatik olarak tanımak için geliştirilmiştir. Bir müzik parçası tek bir bölüm üzerinden değerlendirilmek yerine 30 saniyelik parçalara ayrılır. Her bölüm ayrı ayrı analiz edilir ve sistemin daha önce öğrendiği türlerle karşılaştırılır. Bu yöntem, özellikle uzun müzik dosyalarında daha dengeli ve güvenilir bir tür tahmini yapılmasına yardımcı olur.
+Bu proje, müzik türü tanıma mantığı üzerine kuruludur. Verilen müzik tek parça halinde değerlendirilmez; bunun yerine 30 saniyelik bölümlere ayrılarak analiz edilir. Her bölüm sistemin öğrendiği türlerle karşılaştırılır ve parçanın genel türü çoğunluk sonucuna göre belirlenir.
 
-Sistemin temel mantığı çoğunluk kararına dayanır. Yani her 30 saniyelik bölüm için bir tür tahmini yapılır ve en çok tekrar eden tür, parçanın genel türü olarak kabul edilir. Böylece müziğin yalnızca kısa bir kısmına göre değil, tamamına yayılan bir analiz sonucuna göre karar verilmiş olur.
+Bu yaklaşım sayesinde müzik dosyasının farklı bölümleri ayrı ayrı değerlendirilir. Sonuç olarak sistem, bölümlerden elde edilen tahminleri kullanarak müziğin genel olarak hangi türe daha yakın olduğunu ortaya koyar.
 
 ## English
 
-This project was developed to automatically recognize music genres. Instead of evaluating a music track based on a single section, the track is divided into 30-second segments. Each segment is analyzed separately and compared with the genres previously learned by the system. This method helps produce a more balanced and reliable genre prediction, especially for longer music files.
+This project is based on music genre recognition logic. The given music is not evaluated as a single whole; instead, it is divided into 30-second segments and analyzed. Each segment is compared with the genres learned by the system, and the overall genre of the track is determined according to the majority result.
 
-The core logic of the system is based on majority voting. A genre prediction is made for each 30-second segment, and the genre that appears most frequently is accepted as the overall genre of the track. This allows the system to make a decision based on the full structure of the music rather than only a short part of it.
+With this approach, different parts of the music file are evaluated separately. As a result, the system uses the predictions obtained from the segments to identify which genre the music is mostly closest to.
 
 ---
 
-# Özellikler / Features
+# Temel Özellikler / Main Features
 
 ## Türkçe
 
-MuzikTuruTanima, müzik dosyalarını otomatik olarak 30 saniyelik bölümlere ayırarak analiz eder. Her bölüm, sistemin daha önce öğrendiği müzik türleriyle karşılaştırılır ve bölüm bazında bir tahmin üretilir. Daha sonra bu tahminler bir araya getirilerek parçanın genel türü belirlenir.
+MuzikTuruTanima, verilen müziği 30 saniyelik bölümlere ayırarak analiz eder. Her bölüm, sistemin öğrendiği türlerle karşılaştırılır. Bu analizlerin sonucunda çoğunluk olarak öne çıkan tür, müziğin genel türü olarak belirlenir.
 
-Proje, kullanıcı geri bildirimiyle öğrenme özelliği sunar. Eğer kullanıcı sistemin yanlış tahmin yaptığını düşünürse doğru tür bilgisini sisteme öğretebilir. Bu özellik, projenin zaman içinde daha fazla örnekle gelişmesine ve farklı türleri daha iyi ayırt edebilmesine katkı sağlar.
-
-Sistem, müzik türü tahmin sürecini daha anlaşılır hale getirmek için parça bazlı analiz yaklaşımı kullanır. Bu yapı sayesinde hem kısa hem de uzun müzik dosyalarında daha tutarlı sonuçlar elde edilmesi hedeflenir.
+Sistem ayrıca yanlış tahmin durumlarında doğru türü öğretme imkanı sunar. Kullanıcı, sistemin hata yaptığını düşünürse doğru tür bilgisini ekleyebilir.
 
 ## English
 
-MuzikTuruTanima automatically divides music files into 30-second segments for analysis. Each segment is compared with the music genres previously learned by the system, and a prediction is generated for each segment. These predictions are then combined to determine the overall genre of the track.
+MuzikTuruTanima analyzes the given music by dividing it into 30-second segments. Each segment is compared with the genres learned by the system. As a result of these analyses, the genre that appears most frequently is determined as the overall genre of the music.
 
-The project provides a learning feature through user feedback. If the user believes that the system made an incorrect prediction, they can teach the system the correct genre. This feature helps the project improve over time with more examples and distinguish between different genres more effectively.
-
-The system uses a segment-based analysis approach to make the music genre prediction process more understandable. With this structure, the goal is to obtain more consistent results for both short and long music files.
+The system also allows the correct genre to be taught in cases of incorrect prediction. If the user thinks the system made a mistake, they can add the correct genre information.
 
 ---
 
@@ -54,69 +50,15 @@ The system uses a segment-based analysis approach to make the music genre predic
 
 ## Türkçe
 
-Sistem ilk olarak kullanıcıdan alınan müzik dosyasını işler ve dosyayı 30 saniyelik parçalara böler. Her parça ayrı bir örnek gibi ele alınır. Daha sonra bu parçalar, sistemin öğrendiği tür verileriyle karşılaştırılır ve her bölüm için en olası müzik türü belirlenir.
+Sistem, verilen müzik dosyasını önce 30 saniyelik parçalara böler. Daha sonra bu parçaların her birini kendi öğrendiği türlerle karşılaştırır. Her bölüm için elde edilen sonuçlar birlikte değerlendirilir ve çoğunlukta olan tür final sonuç olarak belirlenir.
 
-Tüm bölümler analiz edildikten sonra sistem, çıkan sonuçları sayar ve çoğunlukta olan türü ana sonuç olarak kullanıcıya sunar. Kullanıcı sonucu doğru bulursa işlem tamamlanır. Eğer sonuç hatalıysa kullanıcı doğru türü belirterek sistemin öğrenme sürecine katkı sağlayabilir.
-
-## English
-
-The system first processes the music file provided by the user and divides it into 30-second parts. Each part is treated as a separate sample. These parts are then compared with the genre data learned by the system, and the most likely music genre is determined for each segment.
-
-After all segments are analyzed, the system counts the results and presents the genre with the majority of predictions as the final result. If the user finds the result correct, the process is completed. If the result is incorrect, the user can provide the correct genre and contribute to the system's learning process.
-
----
-
-# Kullanım Senaryosu / Usage Scenario
-
-## Türkçe
-
-Kullanıcı sisteme bir müzik dosyası verir. Sistem bu dosyayı otomatik olarak analiz eder, 30 saniyelik parçalara ayırır ve her parçanın türünü tahmin eder. Analiz tamamlandığında kullanıcıya müziğin çoğunlukla hangi türe ait olduğu gösterilir.
-
-Örneğin, bir şarkının bazı bölümleri rock, bazı bölümleri pop özellikleri taşıyorsa sistem her bölüm için ayrı değerlendirme yapar. Eğer bölümlerin çoğu rock olarak sınıflandırılırsa genel sonuç rock olarak verilir. Kullanıcı bu sonucun yanlış olduğunu düşünürse doğru türü seçerek sisteme geri bildirim verebilir.
+Eğer kullanıcı sistemin verdiği sonucun yanlış olduğunu düşünürse doğru türü sisteme öğretebilir. Bu özellik, projenin kullanıcı tarafından düzeltilmesine imkan tanır.
 
 ## English
 
-The user provides a music file to the system. The system automatically analyzes the file, divides it into 30-second segments, and predicts the genre of each segment. When the analysis is complete, the user is shown which genre the music mostly belongs to.
+The system first divides the given music file into 30-second parts. It then compares each of these parts with the genres it has learned. The results obtained for each segment are evaluated together, and the genre that appears in the majority is determined as the final result.
 
-For example, if some parts of a song contain rock characteristics and other parts contain pop characteristics, the system evaluates each segment separately. If most segments are classified as rock, the final result is given as rock. If the user thinks this result is incorrect, they can select the correct genre and provide feedback to the system.
-
----
-
-# Kurulum / Installation
-
-## Türkçe
-
-Projeyi kullanmak için öncelikle kaynak kodları bilgisayarınıza indirmeniz gerekir. Ardından proje klasörüne girerek gerekli bağımlılıkları kurabilirsiniz. Kullanılan teknolojilere göre bağımlılıklar değişebilir, bu nedenle varsa `requirements.txt`, `package.json` veya proje içinde belirtilen kurulum dosyaları kontrol edilmelidir.
-
-Örnek kurulum akışı aşağıdaki gibi olabilir:
-
-```bash
-git clone https://github.com/KULLANICI_ADINIZ/MuzikTuruTanima.git
-cd MuzikTuruTanima
-```
-
-Eğer proje Python tabanlıysa gerekli paketler aşağıdaki şekilde kurulabilir:
-
-```bash
-pip install -r requirements.txt
-```
-
-## English
-
-To use the project, first download the source code to your computer. Then enter the project folder and install the required dependencies. The dependencies may vary depending on the technologies used, so files such as `requirements.txt`, `package.json`, or any installation files included in the project should be checked.
-
-An example installation flow may look like this:
-
-```bash
-git clone https://github.com/YOUR_USERNAME/MuzikTuruTanima.git
-cd MuzikTuruTanima
-```
-
-If the project is Python-based, the required packages can be installed as follows:
-
-```bash
-pip install -r requirements.txt
-```
+If the user thinks the result given by the system is wrong, they can teach the correct genre to the system. This feature allows the project to be corrected by the user.
 
 ---
 
@@ -124,55 +66,15 @@ pip install -r requirements.txt
 
 ## Türkçe
 
-Proje çalıştırıldıktan sonra kullanıcıdan analiz edilecek müzik dosyası alınır. Sistem dosyayı 30 saniyelik bölümlere ayırır, her bölümü analiz eder ve genel tür tahminini kullanıcıya sunar. Eğer kullanıcı tahmini yanlış bulursa doğru tür bilgisini girerek sistemin öğrenmesine katkı sağlayabilir.
+Projeyi kullanmak için sisteme bir müzik dosyası verilir. Sistem bu müziği 30 saniyelik bölümlere ayırır, bölümleri öğrendiği türlerle karşılaştırır ve müziğin çoğunluk olarak hangi türe ait olduğunu kullanıcıya gösterir.
 
-Çalıştırma komutu, projenin yapısına göre değişebilir. Python tabanlı bir kullanımda örnek komut şu şekilde olabilir:
-
-```bash
-python main.py
-```
+Tahmin sonucunun yanlış olduğu düşünülürse kullanıcı doğru türü öğretebilir. Böylece sistemin verdiği sonuç üzerinde düzeltme yapılabilir.
 
 ## English
 
-After the project is started, the user provides the music file to be analyzed. The system divides the file into 30-second segments, analyzes each segment, and presents the overall genre prediction to the user. If the user finds the prediction incorrect, they can enter the correct genre and help the system learn.
+To use the project, a music file is provided to the system. The system divides this music into 30-second segments, compares the segments with the genres it has learned, and shows the user which genre the music mostly belongs to.
 
-The run command may vary depending on the structure of the project. For a Python-based usage, an example command may be:
-
-```bash
-python main.py
-```
-
----
-
-# Geri Bildirim ve Öğrenme / Feedback and Learning
-
-## Türkçe
-
-MuzikTuruTanima'nın önemli özelliklerinden biri, kullanıcıdan gelen geri bildirimle geliştirilebilir olmasıdır. Sistem yanlış tahmin yaptığında kullanıcı doğru türü belirterek bu bilgiyi sisteme kazandırabilir. Bu yaklaşım, sistemin zamanla daha fazla örnek görmesini ve müzik türlerini daha doğru ayırt etmesini sağlar.
-
-Bu öğrenme mantığı, özellikle farklı müzik türlerinin birbirine yakın olduğu durumlarda faydalıdır. Kullanıcı katkıları sayesinde sistem, benzer türler arasındaki farkları daha iyi öğrenebilir ve gelecekte daha isabetli tahminler yapabilir.
-
-## English
-
-One of the important features of MuzikTuruTanima is that it can be improved through user feedback. When the system makes an incorrect prediction, the user can provide the correct genre and add this information to the system. This approach allows the system to see more examples over time and distinguish music genres more accurately.
-
-This learning logic is especially useful when different music genres are similar to each other. With user contributions, the system can better learn the differences between similar genres and make more accurate predictions in the future.
-
----
-
-# Geliştirme Fikirleri / Future Improvements
-
-## Türkçe
-
-Gelecek sürümlerde daha fazla müzik türü desteği eklenebilir. Modelin doğruluğunu artırmak için daha geniş ve dengeli veri setleri kullanılabilir. Ayrıca kullanıcı arayüzü geliştirilerek analiz sonuçları daha görsel ve anlaşılır hale getirilebilir.
-
-Bölüm bazlı tahmin sonuçlarının grafiklerle gösterilmesi, kullanıcıya müziğin hangi kısımlarında hangi tür özelliklerinin baskın olduğunu daha net gösterebilir. Bunun yanında model eğitimi, veri güncelleme ve geri bildirim süreçleri daha otomatik hale getirilebilir.
-
-## English
-
-In future versions, support for more music genres can be added. Larger and more balanced datasets can be used to improve model accuracy. The user interface can also be enhanced to make the analysis results more visual and easier to understand.
-
-Displaying segment-based prediction results with charts can help users clearly see which genre characteristics are dominant in different parts of the music. In addition, model training, data updating, and feedback processes can be made more automated.
+If the prediction result is considered incorrect, the user can teach the correct genre. This makes it possible to correct the result provided by the system.
 
 ---
 
@@ -180,8 +82,8 @@ Displaying segment-based prediction results with charts can help users clearly s
 
 ## Türkçe
 
-Bu proje, müzik türü tanıma ve makine öğrenmesi süreçlerini deneyimlemek amacıyla geliştirilmiştir. Sonuçlar kullanılan veri setine, model yapısına ve müzik dosyasının kalitesine göre değişiklik gösterebilir. Daha doğru sonuçlar için çeşitli türlerden dengeli ve kaliteli örneklerle sistemi eğitmek önerilir.
+Bu README yalnızca mevcut proje açıklamasında verilen bilgilere dayanarak hazırlanmıştır. Projede kullanılan teknoloji, kurulum komutları veya dosya yapısı hakkında kaynak metinde bilgi bulunmadığı için bu bölümlere ekleme yapılmamıştır.
 
 ## English
 
-This project was developed to experiment with music genre recognition and machine learning processes. The results may vary depending on the dataset used, the model structure, and the quality of the music file. For more accurate results, it is recommended to train the system with balanced and high-quality examples from various genres.
+This README has been prepared only based on the information provided in the existing project description. Since the source text does not include information about the technologies used, installation commands, or file structure, no additional sections have been added for those topics.
